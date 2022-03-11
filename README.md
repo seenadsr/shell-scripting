@@ -1,1 +1,1 @@
-# shell-scripting - Sreeni
+# shell-scripting
