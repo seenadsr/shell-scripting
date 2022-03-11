@@ -11,3 +11,5 @@ DATE=10/03/2022
 echo "today date is ${DATE}"
 
 DATE=$(date +%D)
+
+echo "${DATE}"
