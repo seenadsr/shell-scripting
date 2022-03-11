@@ -18,4 +18,4 @@ x=10
 y=20
 
 ADD=(($x+$y))
-echo "add = $ADD"
+echo "add = ${ADD}"
