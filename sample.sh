@@ -1,5 +1,6 @@
 #!/bin/bash
 
-echo "this is sample script"
-echo $SHELL
-ls -lrt
+echo "hellow world"
+
+echo -e "\e[this is red colour"
+echo  "One more line"
