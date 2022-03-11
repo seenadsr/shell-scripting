@@ -13,3 +13,9 @@ echo "today date is ${DATE}"
 DATE=$(date +%D)
 
 echo "${DATE}"
+
+x=10
+y=20
+
+ADD=(($x+$y))
+echo "add = $ADD"
