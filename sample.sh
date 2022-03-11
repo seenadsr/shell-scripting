@@ -1,4 +1,4 @@
-#!/bin/ksh
+#!/bin/bash
 
 echo "this is sample script"
 echo $SHELL
