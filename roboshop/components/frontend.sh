@@ -7,14 +7,14 @@ if [ $? = 0 ];then
 else
   echo "installation command failed";exit 1
 fi
-echo"----------------------------------"
+echo "----------------------------------"
 curl -s -L -o /tmp/frontend.zip "https://github.com/roboshop-devops-project/frontend/archive/main.zip"
 if [ $? = 0 ];then
   echo "Copying config files success"
 else
   echo " file copy is failed ";exit 1
 fi
-echo"----------------------------------"
+echo  "----------------------------------"
 echo -e "\e[36m Cleaning and extracting nginx file\e[0m"
 cd /usr/share/nginx/html
 rm -rf *
@@ -28,12 +28,12 @@ if [ $? = 0 ];then
 else
   echo "Cleaning and configuration is failed";exit 1
 fi
-echo"----------------------------------"
+echo "----------------------------------"
 echo -e "\e[36m starting nginx services\e[0m"
 systemctl restart nginx
 systemctl enable nginx
 systemctl status nginx|grep active
-echo"----------------------------------"
+echo "----------------------------------"
 if [ $? = 0 ];then
   echo "starting nginx success"
 else
