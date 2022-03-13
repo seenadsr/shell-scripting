@@ -15,4 +15,5 @@ mv localhost.conf /etc/nginx/default.d/roboshop.conf
 echo -e "\e[36m starting nginx services\e[0m"
 systemctl restart nginx
 systemctl enable nginx
+systemctl status nginx|grep active
 
