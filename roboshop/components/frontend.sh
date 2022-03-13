@@ -5,7 +5,7 @@ yum install nginy -y
 if [ $? = 0 ];then
   echo "installing nginx is success"
 else
-  exit 1
+  echo "installation command failed;exit 1"
 fi
 curl -s -L -o /tmp/frontend.zip "https://github.com/roboshop-devops-project/frontend/archive/main.zip"
 
