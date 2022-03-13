@@ -18,14 +18,19 @@ print() {
 
   echo -e "\e[36m $1 \e[0m"
 }
+
+space () {
+  echo "  "
+  echo "======================================"
+}
 print "Installing nginx"
 yum install nginx -y
 StatCheck $? "Nginx Installation - "
-echo "----------------------------------"
+space
 print "Copying frontend config files"
 curl -s -L -o /tmp/frontend.zip "https://github.com/roboshop-devops-project/frontend/archive/main.zip"
 StatCheck $? "Curl copy - "
-echo  "----------------------------------"
+space
 print "Cleaning and extracting nginx file"
 cd /usr/share/nginx/html
 rm -rf *
@@ -34,8 +39,8 @@ mv frontend-main/* .
 mv static/* .
 rm -rf frontend-main README.md
 mv localhost.conf /etc/nginx/default.d/roboshop.conf
-StatCheck $? " Cleanin and extracting - "
-echo "----------------------------------"
+StatCheck $? " Cleaning and extracting - "
+space
 print "starting nginx services"
 
 systemctl restart nginx
