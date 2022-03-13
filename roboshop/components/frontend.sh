@@ -1,7 +1,7 @@
 #!/bin/bash
 
 USER_ID=`whoami`
-if [ $USER_ID = 'root'];then
+if [ $USER_ID = 'root' ];then
   echo "$USER_ID exist and proceeding installation"
 else
   echo "$USER_ID not exist";exit 2
