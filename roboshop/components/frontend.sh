@@ -19,7 +19,7 @@ yum install nginx -y
 StatCheck $? "Nginx Installation - "
 echo "----------------------------------"
 echo -e "\e[36m Copying frontend config files\e[0m"
-curl -s -L -o /tmp/frontend.zip "https://github.com/roboshop-devops-project/frontend/archive/main.zip"
+curl -s -L -o /tmp/frontend.zip "https://githu.com/roboshop-devops-project/frontend/archive/main.zip"
 StatCheck $? "Curl copy - "
 echo  "----------------------------------"
 echo -e "\e[36m Cleaning and extracting nginx file\e[0m"
