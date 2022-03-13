@@ -22,11 +22,11 @@ print "Installing nginx"
 yum install nginx -y
 StatCheck $? "Nginx Installation - "
 echo "----------------------------------"
-print "36m Copying frontend config files"
+print "Copying frontend config files"
 curl -s -L -o /tmp/frontend.zip "https://github.com/roboshop-devops-project/frontend/archive/main.zip"
 StatCheck $? "Curl copy - "
 echo  "----------------------------------"
-print "36m Cleaning and extracting nginx file"
+print "Cleaning and extracting nginx file"
 cd /usr/share/nginx/html
 rm -rf *
 unzip /tmp/frontend.zip
@@ -36,7 +36,7 @@ rm -rf frontend-main README.md
 mv localhost.conf /etc/nginx/default.d/roboshop.conf
 StatCheck $? " Cleanin and extracting - "
 echo "----------------------------------"
-print "36m starting nginx services"
+print "starting nginx services"
 
 systemctl restart nginx
 systemctl enable nginx
