@@ -14,8 +14,8 @@ if [ $USER_ID = 'root' ];then
 else
   echo -e " \e[31mInstallation should run with only root\e[0m ";exit 2
 fi
-print() {
 
+print() {
   echo -e "\e[36m $1 \e[0m"
 }
 
@@ -31,19 +31,20 @@ print "Copying frontend config files"
 curl -s -L -o /tmp/frontend.zip "https://github.com/roboshop-devops-project/frontend/archive/main.zip"
 StatCheck $? "Curl copy - "
 space
-print "Cleaning and extracting nginx file"
-cd /usr/share/nginx/html
-rm -rf *
-unzip /tmp/frontend.zip
-mv frontend-main/* .
-mv static/* .
-rm -rf frontend-main README.md
-mv localhost.conf /etc/nginx/default.d/roboshop.conf
-StatCheck $? " Cleaning and extracting - "
-space
-print "starting nginx services"
+print " cleaning up old-files"
+rm -rf /usr/share/nginx/html
+StatCheck $? "cleaning up files -"
 
-systemctl restart nginx
-systemctl enable nginx
-systemctl status nginx|grep active
+cd /usr/share/nginx/html
+print "extracting files "
+unzip /tmp/frontend.zip && mv frontend-main/* . && mv static/* .
+StatCheck $? "extracting files - "
+
+print " Configuring roboshop files"
+mv localhost.conf /etc/nginx/default.d/roboshop.conf
+StatCheck $? "Configuring roboshop - "
+space
+
+print "starting nginx services"
+systemctl restart nginx && systemctl enable nginx && systemctl status nginx|grep active
 StatCheck $? " Nginx status - "
