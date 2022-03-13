@@ -14,15 +14,19 @@ if [ $USER_ID = 'root' ];then
 else
   echo -e " \e[31mInstallation should run with only root\e[0m ";exit 2
 fi
-echo -e "\e[36m Installing nginx\e[0m"
+print() {
+
+  echo -e "\e[36m $i \e[0m"
+}
+print "Installing nginx"
 yum install nginx -y
 StatCheck $? "Nginx Installation - "
 echo "----------------------------------"
-echo -e "\e[36m Copying frontend config files\e[0m"
+print "36m Copying frontend config files"
 curl -s -L -o /tmp/frontend.zip "https://github.com/roboshop-devops-project/frontend/archive/main.zip"
 StatCheck $? "Curl copy - "
 echo  "----------------------------------"
-echo -e "\e[36m Cleaning and extracting nginx file\e[0m"
+print "36m Cleaning and extracting nginx file"
 cd /usr/share/nginx/html
 rm -rf *
 unzip /tmp/frontend.zip
@@ -32,7 +36,7 @@ rm -rf frontend-main README.md
 mv localhost.conf /etc/nginx/default.d/roboshop.conf
 StatCheck $? " Cleanin and extracting - "
 echo "----------------------------------"
-echo -e "\e[36m starting nginx services\e[0m"
+print "36m starting nginx services"
 
 systemctl restart nginx
 systemctl enable nginx
