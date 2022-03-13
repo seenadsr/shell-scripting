@@ -19,4 +19,4 @@ STAT(){
   echo "hai"
 }
 
-echo " exist status of function = $?"
+echo " exist status of function STAT = $?"
