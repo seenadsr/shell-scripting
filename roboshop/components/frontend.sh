@@ -30,7 +30,8 @@ else
 fi
 echo "----------------------------------"
 echo -e "\e[36m starting nginx services\e[0m"
-systemctl restart nginy
+systemctl stop nginx
+systemctl start nginy
 systemctl enable nginx
 systemctl status nginx|grep active
 echo "----------------------------------"
