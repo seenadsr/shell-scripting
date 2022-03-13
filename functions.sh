@@ -15,7 +15,7 @@ echo "my first argument in function = $a"
 
 STAT() {
   echo "hello"
-  return 3
+  return 1
   echo "hai"
 }
 
