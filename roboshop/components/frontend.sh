@@ -33,7 +33,7 @@ echo -e "\e[36m starting nginx services\e[0m"
 systemctl enable nginx
 systemctl stop nginx
 systemctl start nginy
-systemctl status nginx|grep active
+#systemctl status nginx|grep active
 echo "----------------------------------"
 if [ $? = 0 ];then
   echo "starting nginx success"
