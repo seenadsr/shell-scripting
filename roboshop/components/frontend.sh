@@ -2,7 +2,7 @@
 
 echo -e "\e[36m Installing nginx\e[0m"
 yum install nginx -y
-if [ echo $? = 0 ];then
+if [ $? = 0 ];then
   echo "installing nginx is success"
 else
   exit 1
