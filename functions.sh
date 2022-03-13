@@ -7,3 +7,5 @@ print_message() {
 }
 
 print_message devops
+
+echo "my first argument in function = $1"
