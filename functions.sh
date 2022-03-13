@@ -11,4 +11,4 @@ print_message() {
 a=10
 print_message devops
 
-echo "my first argument in function = $1"
+echo "my first argument in function = $a"
