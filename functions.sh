@@ -2,7 +2,7 @@
 print_message() {
   echo " hello "
   echo " Good Morning"
-  echo " Welcome to DevOps Training"
+  echo " Welcome to $1 Training"
 }
 
-print_message
+print_message devops
