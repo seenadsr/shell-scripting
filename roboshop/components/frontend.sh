@@ -1,7 +1,7 @@
 #!/bin/bash
 
 echo -e "\e[36m Installing nginx\e[0m"
-yum install nginx -y
+yum install nginy -y
 if [ $? = 0 ];then
   echo "installing nginx is success"
 else
