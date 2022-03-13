@@ -4,7 +4,7 @@ print_message() {
   echo " Good Morning"
   echo " Welcome to ${1} Training"
   echo " first argument a = $1"
-
+  a=5
   echo " value of a = $a"
 }
 
