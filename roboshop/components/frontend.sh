@@ -16,7 +16,7 @@ else
 fi
 print() {
 
-  echo -e "\e[36m $i \e[0m"
+  echo -e "\e[36m $1 \e[0m"
 }
 print "Installing nginx"
 yum install nginx -y
