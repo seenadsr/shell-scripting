@@ -12,7 +12,7 @@ USER_ID=`whoami`
 if [ $USER_ID = 'root' ];then
   echo "$USER_ID proceeding installation"
 else
-  echo " Installation should run with only root ";exit 2
+  echo -e " \e[31mInstallation should run with only root\e[0m ";exit 2
 fi
 echo -e "\e[36m Installing nginx\e[0m"
 yum install nginx -y
