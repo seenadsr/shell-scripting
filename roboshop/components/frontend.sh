@@ -1,5 +1,11 @@
 #!/bin/bash
 
+USER_ID=`whoami`
+if [ $USER_ID = 'root'];then
+  echo "$USER_ID exist and proceeding installation"
+else
+  echo "$USER_ID not exist";exit 2
+
 echo -e "\e[36m Installing nginx\e[0m"
 yum install nginx -y
 if [ $? = 0 ];then
@@ -30,10 +36,10 @@ else
 fi
 echo "----------------------------------"
 echo -e "\e[36m starting nginx services\e[0m"
+
+systemctl restart nginx
 systemctl enable nginx
-systemctl stop nginx
-systemctl start nginy
-#systemctl status nginx|grep active
+systemctl status nginx|grep active
 if [ $? = 0 ];then
   echo "starting nginx success"
 else
