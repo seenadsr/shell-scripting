@@ -1,5 +1,13 @@
 #!/bin/bash
 
+StatCheck() {
+  if [ $1 = 0 ];then
+    echo -e "$2 \e{36mSuccess\e{0m"
+  else
+    echo -e "$2 \e{32mFailed\e{0m"
+    exit 2
+  fi
+}
 USER_ID=`whoami`
 if [ $USER_ID = 'root' ];then
   echo "$USER_ID proceeding installation"
@@ -8,18 +16,10 @@ else
 fi
 echo -e "\e[36m Installing nginx\e[0m"
 yum install nginx -y
-if [ $? = 0 ];then
-  echo "installing nginx is success"
-else
-  echo "installation command failed";exit 1
-fi
+StatCheck $? "Nginx Installation - "
 echo "----------------------------------"
 curl -s -L -o /tmp/frontend.zip "https://github.com/roboshop-devops-project/frontend/archive/main.zip"
-if [ $? = 0 ];then
-  echo "Copying config files success"
-else
-  echo " file copy is failed ";exit 1
-fi
+StatCheck $? "Curl copy - "
 echo  "----------------------------------"
 echo -e "\e[36m Cleaning and extracting nginx file\e[0m"
 cd /usr/share/nginx/html
@@ -29,19 +29,11 @@ mv frontend-main/* .
 mv static/* .
 rm -rf frontend-main README.md
 mv localhost.conf /etc/nginx/default.d/roboshop.conf
-if [ $? = 0 ];then
-  echo "Cleaning and configuration is success"
-else
-  echo "Cleaning and configuration is failed";exit 1
-fi
+StatCheck $? " Cleanin and extracting - "
 echo "----------------------------------"
 echo -e "\e[36m starting nginx services\e[0m"
 
 systemctl restart nginx
 systemctl enable nginx
 systemctl status nginx|grep active
-if [ $? = 0 ];then
-  echo "starting nginx success"
-else
-  echo "starting nginx failed";exit 1
-fi
+StatCheck $? " Nginx status - "
