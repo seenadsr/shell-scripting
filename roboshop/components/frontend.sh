@@ -18,7 +18,7 @@ fi
 LOG_FILE=/tmp/roboshop.log
 rm -rf $LOG_FILE
 print() {
-  echo "================$1=============" >>$LOG_FILE
+  echo -e "\n================$1=============" >>$LOG_FILE
   echo -e "\e[36m $1 \e[0m"
 }
 
