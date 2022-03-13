@@ -1,7 +1,11 @@
 #!/bin/bash
 
-echo -e "\e[36m Installin nginx\e[0m"
+echo -e "\e[36m Installing nginx\e[0m"
 yum install nginx -y
+if { $? -eq 0 };then
+  echo "installing nginx is success"
+else
+  exit 1
 curl -s -L -o /tmp/frontend.zip "https://github.com/roboshop-devops-project/frontend/archive/main.zip"
 
 echo -e "\e[36m Cleaning and extracting nginx file\e[0m"
