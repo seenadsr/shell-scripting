@@ -12,3 +12,11 @@ a=10
 print_message devops
 
 echo "my first argument in function = $a"
+
+STAT(){
+  echo "hello"
+  return 3
+  echo "hai"
+}
+
+echo " exist status of function = $?"
