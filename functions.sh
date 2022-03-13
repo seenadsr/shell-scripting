@@ -5,4 +5,4 @@ print_message() {
   echo " Welcome to $1 Training"
 }
 
-print_message devops
+print_message
