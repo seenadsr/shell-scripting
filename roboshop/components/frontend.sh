@@ -18,6 +18,7 @@ echo -e "\e[36m Installing nginx\e[0m"
 yum install nginx -y
 StatCheck $? "Nginx Installation - "
 echo "----------------------------------"
+echo -e "\e[36m Copying frontend config files\e[0m"
 curl -s -L -o /tmp/frontend.zip "https://github.com/roboshop-devops-project/frontend/archive/main.zip"
 StatCheck $? "Curl copy - "
 echo  "----------------------------------"
