@@ -32,7 +32,7 @@ curl -s -L -o /tmp/frontend.zip "https://github.com/roboshop-devops-project/fron
 StatCheck $? "Curl copy - "
 space
 print " cleaning up old-files"
-rm -rf /usr/share/nginx/html
+rm -rf /usr/share/nginx/html/*
 StatCheck $? "cleaning up files -"
 space
 
