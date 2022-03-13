@@ -13,7 +13,7 @@ print_message devops
 
 echo "my first argument in function = $a"
 
-STAT(){
+STAT() {
   echo "hello"
   return 3
   echo "hai"
