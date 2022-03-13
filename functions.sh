@@ -9,6 +9,6 @@ print_message() {
 }
 
 a=10
-print_message
+print_message devops
 
 echo "my first argument in function = $a"
