@@ -1,4 +1,4 @@
-
+#!/bin/bash
 print_message() {
   echo " hello "
   echo " Good Morning"
