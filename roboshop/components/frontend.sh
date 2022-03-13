@@ -34,11 +34,13 @@ space
 print " cleaning up old-files"
 rm -rf /usr/share/nginx/html
 StatCheck $? "cleaning up files -"
+space
 
 cd /usr/share/nginx/html
 print "extracting files "
 unzip /tmp/frontend.zip && mv frontend-main/* . && mv static/* .
 StatCheck $? "extracting files - "
+space
 
 print " Configuring roboshop files"
 mv localhost.conf /etc/nginx/default.d/roboshop.conf
