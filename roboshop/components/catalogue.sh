@@ -14,7 +14,7 @@ id ${APP_USER} >>$LOG_FILE
 if [ $? -ne 0 ];then
 useradd ${APP_USER} >> $LOG_FILE
 fi
-StatCheck $? " Application user adding   - "
+StatCheck $? " Application user adding  - "
 
 print " Download nodejs config file "
 curl -s -L -o /tmp/catalogue.zip "https://github.com/roboshop-devops-project/catalogue/archive/main.zip" >>LOG_FILE
