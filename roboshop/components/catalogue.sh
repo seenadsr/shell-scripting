@@ -35,3 +35,11 @@ StatCheck $? " npm installation success "
 print " Changing permission for application user"
 chown -R ${APP_USER}:${APP_USER} /home/roboshop >>$LOG_FILE
 StatCheck $? " Permission changed - "
+
+print "update mnagodb DNS name"
+sed -i -e 's/MONGO_DNSNAME/mongo.roboshop.internal/' /home/roboshop/catalogue/systemd.service >>$LOG_FILE
+StatCheck $? " MangoDB DNS name updated - "
+
+print " Start systemd services "
+mv /home/roboshop/catalogue/systemd.service /etc/systemd/system/catalogue.service >>$LOG_FILE && systemctl daemon-reload >>$LOG_FILE && systemctl start catalogue >>$LOG_FILE  && systemctl enable catalogue >>$LOG_FILE
+StatCheck $? " services started "
