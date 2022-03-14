@@ -21,7 +21,7 @@ curl -s -L -o /tmp/catalogue.zip "https://github.com/roboshop-devops-project/cat
 StatCheck $? "Downloading nodejs config files  - "
 
 print " extract and configure nodejs"
-cd /home/roboshop && unzip -o /tmp/catalogue.zip && mv catalogue-main catalogue && cd /home/roboshop/catalogue >>LOG_FILE
+cd /home/roboshop >>LOG_FILE && unzip -o /tmp/catalogue.zip >>LOG_FILE && mv catalogue-main catalogue >>LOG_FILE && cd /home/roboshop/catalogue >>LOG_FILE
 StatCheck $? " nodejs configuration - "
 
 print " npm installation "
