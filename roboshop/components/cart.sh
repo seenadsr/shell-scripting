@@ -17,7 +17,7 @@ fi
 StatCheck $? " Application user adding  - "
 
 print " Download nodejs config file "
-curl -s -L -o /tmp/cart.zip "https://github.com/roboshop-devops-project/cart/archive/main.zip >>$LOG_FILE
+curl -s -L -o /tmp/cart.zip "https://github.com/roboshop-devops-project/cart/archive/main.zip" >>$LOG_FILE
 StatCheck $? "Downloading nodejs config files  - "
 
 print "Cleaning old files "
