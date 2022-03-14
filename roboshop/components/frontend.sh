@@ -22,6 +22,8 @@ StatCheck $? "extracting files - "
 print " Configuring roboshop files"
 mv localhost.conf /etc/nginx/default.d/roboshop.conf >>$LOG_FILE
 sed -i -e '/catalogue/s/localhost/catalogue.roboshop.internal/' /etc/nginx/default.d/roboshop.conf >>$LOG_FILE
+sed -i -e '/user/s/localhost/user.roboshop.internal/' /etc/nginx/default.d/roboshop.conf >>$LOG_FILE
+sed -i -e '/cart/s/localhost/cart.roboshop.internal/' /etc/nginx/default.d/roboshop.conf >>$LOG_FILE
 StatCheck $? "Configuring roboshop - "
 
 
