@@ -19,7 +19,7 @@ systemctl enable mongod >>$LOG_FILE && systemctl restart mongod >>$LOG_FILE
 StatCheck $? " service starting is -  "
 
 print " Download the schema"
-curl -s -L -o /tmp/mongodb.zip "https://github.com/roboshop-devops-project/mongodb/archive/main.zip" >>LOG_FILE
+curl -f -s -L -o /tmp/mongodb.zip "https://github.com/roboshop-devops-project/mongodb/archive/main.zip" >>LOG_FILE
 StatCheck $? " Downloading  schema - "
 
 print " Extracting Schema"
