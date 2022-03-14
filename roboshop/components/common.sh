@@ -1,9 +1,9 @@
 #!/bin/bash
 StatCheck() {
   if [ $1 = 0 ];then
-    echo -e " `date` $2 \e[36mSuccess\e[0m"
+    echo -e " `date` : $2 \e[36mSuccess\e[0m"
   else
-    echo -e "$2 \e[32mFailed\e[0m"
+    echo -e " `date` :$2 \e[32mFailed\e[0m"
     exit 2
   fi
 }
