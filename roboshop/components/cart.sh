@@ -37,8 +37,8 @@ chown -R ${APP_USER}:${APP_USER} /home/roboshop >>$LOG_FILE
 StatCheck $? " Permission changed - "
 
 print "update redis and catalogue DNS name"
-sed -i -e 's/REDIS_ENDPOINT/redis.roboshop.internal/' /home/roboshop/user/systemd.service >>$LOG_FILE
-sed -i -e 's/CATALOGUE_ENDPOINT/catalogue.roboshop.internal/' /home/roboshop/user/systemd.service >>$LOG_FILE
+sed -i -e 's/REDIS_ENDPOINT/redis.roboshop.internal/' /home/roboshop/cart/systemd.service >>$LOG_FILE
+sed -i -e 's/CATALOGUE_ENDPOINT/catalogue.roboshop.internal/' /home/roboshop/cart/systemd.service >>$LOG_FILE
 StatCheck $? " update redis and catalogue DNS name - "
 
 print " Start systemd services "
