@@ -10,7 +10,12 @@ yum install redis -y >>$LOG_FILE
 StatCheck $? "installation of redis - "
 
 print " Update listen address "
-sed -i -e 's/127.0.0.1/0.0.0.0/' /etc/redis.conf >>$LOG_FILE && sed -i -e 's/127.0.0.1/0.0.0.0/' /etc/redis/redis.conf >>$LOG_FILE
+if [ -f /etc/redis.conf ];then
+sed -i -e 's/127.0.0.1/0.0.0.0/' /etc/redis.conf >>$LOG_FILE
+fi
+if [ -f /etc/redis/redis.conf ];then
+sed -i -e 's/127.0.0.1/0.0.0.0/' /etc/redis/redis.conf >>$LOG_FILE
+fi
 StatCheck $? "Update listen address"
 
 print " start redis database"
