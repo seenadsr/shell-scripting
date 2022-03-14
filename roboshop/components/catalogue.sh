@@ -11,7 +11,7 @@ StatCheck $? " Installation nodejs - "
 
 print " Adding application user roboshop "
 id ${APP_USER} >>$LOG_FILE
-if { $? -ne 0 };then
+if [ $? -ne 0 ];then
 useradd ${APP_USER} >> $LOG_FILE
 fi
 StatCheck $? " Application user adding   - "
