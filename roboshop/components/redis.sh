@@ -1,6 +1,6 @@
 #!/bin/bash
 
-source /components/common.sh
+source components/common.sh
 print " Setting up redis YUM Rep "
 curl -L https://raw.githubusercontent.com/roboshop-devops-project/redis/main/redis.repo -o /etc/yum.repos.d/redis.repo >>$LOG_FILE
 StatCheck $? "Redis YUM repository setup - "
