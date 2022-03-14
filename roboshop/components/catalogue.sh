@@ -22,5 +22,5 @@ cd /home/roboshop && unzip /tmp/catalogue.zip && mv catalogue-main catalogue & c
 StatCheck $? " nodejs configuration - "
 
 print " npm installation "
-npm install
+npm install >>LOG_FILE
 StatCheck $? " npm installation success "
