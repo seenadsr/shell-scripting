@@ -20,6 +20,10 @@ print " Download nodejs config file "
 curl -s -L -o /tmp/catalogue.zip "https://github.com/roboshop-devops-project/catalogue/archive/main.zip" >>LOG_FILE
 StatCheck $? "Downloading nodejs config files  - "
 
+print "Cleaning old files "
+rm -rf /home/${APP_USER}/catalogue >>LOG_FILE
+StatCheck $? " Old files cleanup -"
+
 print " extract and configure nodejs"
 cd /home/roboshop >>LOG_FILE && unzip -o /tmp/catalogue.zip >>LOG_FILE && mv -f catalogue-main catalogue >>LOG_FILE && cd /home/roboshop/catalogue >>LOG_FILE
 StatCheck $? " nodejs configuration - "
