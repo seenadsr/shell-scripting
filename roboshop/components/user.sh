@@ -42,5 +42,5 @@ sed -i -e 's/MONGO_ENDPOINT/mongo.roboshop.internal/' /home/roboshop/user/system
 StatCheck $? " MangoDB & redis DNS name updated - "
 
 print " Start systemd services "
-mv /home/roboshop/user/systemd.service /etc/systemd/system/catalogue.service >>$LOG_FILE && systemctl daemon-reload >>$LOG_FILE && systemctl start user >>$LOG_FILE  && systemctl enable user >>$LOG_FILE
+mv /home/roboshop/user/systemd.service /etc/systemd/system/user.service >>$LOG_FILE && systemctl daemon-reload >>$LOG_FILE && systemctl start user >>$LOG_FILE  && systemctl enable user >>$LOG_FILE
 StatCheck $? " services started "
