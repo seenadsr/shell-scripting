@@ -8,15 +8,15 @@ StatCheck $? "MongoDB repository - "
 
 print " MongoDB installation "
 yum install -y mongodb-org >>$LOG_FILE
-StatCheck $? " MongoDB Installation success"
+StatCheck $? " MongoDB Installation - "
 
 print "Configuring mongoDB lister address"
 sed -i -e 's/127.0.0.1/0.0.0.0/' /etc/mongod.conf
-StatCheck $? " MongoDB lister address configure is success "
+StatCheck $? " MongoDB lister address configure - "
 
 print " starting and enabling mongodb services"
 systemctl enable mongod >>$LOG_FILE && systemctl start mongod >>$LOG_FILE
-StatCheck $? " service starting is success "
+StatCheck $? " service starting is -  "
 
 
 
