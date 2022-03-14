@@ -23,6 +23,7 @@ print() {
 }
 
 APP_USER=roboshop
+
 NODJS() {
   print " Setting up YUM repo "
   curl -fsSL https://rpm.nodesource.com/setup_lts.x | bash - >> $LOG_FILE
@@ -40,7 +41,7 @@ NODJS() {
   StatCheck $? " Application user adding  - "
 
   print " Download nodejs config file "
-  curl -s -L -o /tmp/catalogue.zip "https://github.com/roboshop-devops-project/${COMPONENT}/archive/main.zip" >>$LOG_FILE
+  curl -s -L -o /tmp/${COMPONENT}.zip "https://github.com/roboshop-devops-project/${COMPONENT}/archive/main.zip" >>$LOG_FILE
   StatCheck $? "Downloading nodejs config files  - "
 
   print "Cleaning old files "
