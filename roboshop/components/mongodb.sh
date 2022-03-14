@@ -18,6 +18,17 @@ print " starting and enabling mongodb services"
 systemctl enable mongod >>$LOG_FILE && systemctl restart mongod >>$LOG_FILE
 StatCheck $? " service starting is -  "
 
+print " Download the schema"
+curl -s -L -o /tmp/mongodb.zip "https://github.com/roboshop-devops-project/mongodb/archive/main.zip" >>LOG_FILE
+StatCheck $? " Downloading  schema - "
+
+print " Extracting Schema"
+cd /tmp >>LOG_FILE && unzip mongodb.zip >>LOG_FILE && cd mongodb-main >>LOG_FILE
+StatCheck $? "Extracting schema - "
+
+print "Load the schema "
+mongo < catalogue.js >>LOG_FILE && mongo < users.js >>LOG_FILE
+StatCheck $? " loading Schema - "
 
 
 

@@ -11,7 +11,7 @@ StatCheck $? " Installation nodejs - "
 
 print " Adding application user roboshop and switch to roboshop"
 useradd roboshop >> $LOG_FILE && su - roboshop >>LOG_FILE
-
+StatCheck $? " Adding roboshop user and switching is - "
 
 print " Download nodejs config file "
 curl -s -L -o /tmp/catalogue.zip "https://github.com/roboshop-devops-project/catalogue/archive/main.zip" >>LOG_FILE
