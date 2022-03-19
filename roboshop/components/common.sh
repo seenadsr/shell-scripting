@@ -61,7 +61,10 @@ NODJS() {
   StatCheck $? " Permission changed - "
 
   print "update DNS name"
-  sed -i -e 's/MONGO_DNSNAME/mongo.roboshop.internal/' -e 's/REDIS_ENDPOINT/redis.roboshop.internal/' -e 's/CATALOGUE_ENDPOINT/catalogue.roboshop.internal/' -e 's/MONGO_ENDPOINT/mongo.roboshop.internal/' /home/roboshop/catalogue/systemd.service >>$LOG_FILE
+  sed -i -e 's/MONGO_DNSNAME/mongo.roboshop.internal/' \
+         -e 's/REDIS_ENDPOINT/redis.roboshop.internal/' \
+         -e 's/CATALOGUE_ENDPOINT/catalogue.roboshop.internal/' \
+         -e 's/MONGO_ENDPOINT/mongo.roboshop.internal/' /home/roboshop/catalogue/systemd.service >>$LOG_FILE
   StatCheck $? " DNS name updated - "
 
   print " Start systemd services "
