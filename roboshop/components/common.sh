@@ -64,7 +64,7 @@ SERVICE_SETUP() {
                -e 's/DBHOST/mysql.roboshop.internal/' \
                -e 's/CARTHOST/cart.roboshop.internal/' \
                -e 's/USERHOST/user.roboshop.internal/' \
-               -e 's/AMQPHOST/rabittmq.roboshop.internal/ /home/roboshop/${COMPONENT}/systemd.service >>$LOG_FILE
+               -e 's/AMQPHOST/rabittmq.roboshop.internal/' /home/roboshop/${COMPONENT}/systemd.service >>$LOG_FILE
         StatCheck $? " DNS name updated - "
 
         print " Start systemd services "
@@ -121,5 +121,6 @@ cd /home/${APP_USER}/${COMPONENT} >>${LOG_FILE} && pip3 install -r requirements.
 StatCheck $?
 
 SERVICE_SETUP
+
 }
 
