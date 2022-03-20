@@ -38,7 +38,7 @@ fi
 #First lets connect to MySQL
 #
 #```bash
-## mysql -uroot -pRoboShop@1
+### mysql -uroot -pRoboShop@1
 #```
 #
 #Once after login to MySQL prompt then run this SQL Command.
