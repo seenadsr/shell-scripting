@@ -18,3 +18,12 @@ user:
 
 mysql:
 	bash components/mysql.sh
+
+shipping:
+	bash components/shipping.sh
+
+rebittmq:
+	bash components/rabittmq.sh
+
+payments:
+	bash components/payments.sh
