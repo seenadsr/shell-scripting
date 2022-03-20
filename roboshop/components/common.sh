@@ -35,7 +35,7 @@ APP_SETUP() {
     StatCheck $? " Application user adding  - "
 
     print " Download nodejs config file "
-    curl -s -L -o /tmp/${COMPONENT}.zip "https://github.com/roboshop-devops-project/${COMPONENT}/archive/main.zip" >>$LOG_FILE
+    curl -f -s -L -o /tmp/${COMPONENT}.zip "https://github.com/roboshop-devops-project/${COMPONENT}/archive/main.zip" >>$LOG_FILE
     StatCheck $? "Downloading nodejs config files  - "
 
     print "Cleaning old files "
