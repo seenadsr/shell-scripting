@@ -21,6 +21,7 @@ if [ $? -ne 0 ];then
 print "Create application user"
 rabbitmqctl add_user roboshop roboshop123 &>>${LOG_FILE}
 StatCheck $?
+fi
 
 ## rabbitmqctl set_user_tags roboshop administrator
 ## rabbitmqctl set_permissions -p / roboshop ".*" ".*" ".*"
