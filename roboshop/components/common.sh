@@ -97,9 +97,9 @@ StatCheck $?
 
 APP_SETUP
 
-Print "Mavan package installation"
+print "Mavan package installation"
 
-cd /home/${APP_USER}/${COMPONENT} && mvn clean package >>$LOG_FILE && target/shipping-1.0.jar shipping.jar >>$LOG_FILE
+cd /home/${APP_USER}/${COMPONENT} && mvn clean package >>$LOG_FILE && mv target/shipping-1.0.jar shipping.jar >>$LOG_FILE
 
 SERVICE_SETUP
 
