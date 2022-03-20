@@ -61,7 +61,7 @@ SERVICE_SETUP() {
                -e 's/CATALOGUE_ENDPOINT/catalogue.roboshop.internal/' \
                -e 's/MONGO_ENDPOINT/mongo.roboshop.internal/' \
                -e 's/CARTENDPOINT/cart.roboshop.internal/' \
-               -e 's/DBHOST/mysql.roboshop.internal/'/home/roboshop/${COMPONENT}/systemd.service >>$LOG_FILE
+               -e 's/DBHOST/mysql.roboshop.internal/' /home/roboshop/${COMPONENT}/systemd.service >>$LOG_FILE
         StatCheck $? " DNS name updated - "
 
         print " Start systemd services "
