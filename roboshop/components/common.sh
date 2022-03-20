@@ -125,3 +125,15 @@ SERVICE_SETUP
 
 }
 
+GOLANG() {
+print "Install GoLang"
+ yum install golang -y >>${LOG_FILE}
+StatCheck $?
+
+APP_SETUP
+print "goLeng build and configure "
+cd ${COMPONENT} >>${LOG_FILE} && go mod init ${COMPONENT} >>${LOG_FILE} && go get >>${LOG_FILE} && go build >>${LOG_FILE}
+
+StatCheck $?
+SERVICE_SETUP
+}
