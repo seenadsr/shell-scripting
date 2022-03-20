@@ -39,7 +39,7 @@ APP_SETUP() {
     StatCheck $? "Downloading nodejs config files  - "
 
     print "Cleaning old files "
-    rm -rf /home/${APP_USER}/${COMPONENT}/* >>$LOG_FILE
+    rm -rf /home/${APP_USER}/* >>$LOG_FILE
     StatCheck $? " Old files cleanup -"
 
     print " extract and configure "
