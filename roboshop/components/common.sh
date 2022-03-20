@@ -120,6 +120,7 @@ print "Install the dependencies"
 cd /home/${APP_USER}/${COMPONENT} >>${LOG_FILE} && pip3 install -r requirements.txt >>${LOG_FILE}
 StatCheck $?
 
+
 SERVICE_SETUP
 
 }
