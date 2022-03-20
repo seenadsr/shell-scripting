@@ -21,29 +21,14 @@ mysql --connect-expired-password -uroot -p"${DEFAULT_ROOT_PASSWD}"  < /tmp/passw
 StatCheck $?
 fi
 
-#1. Now a default root password will be generated and given in the log file.
-#
-#```bash
-## grep temp /var/log/mysqld.log
-#```
-#
-#1. Next, We need to change the default root password in order to start using the database service. Use password `RoboShop@1` or any other as per your choice. Rest of the options you can choose `No`
-#
-#```bash
-## mysql_secure_installation
-#```
-#
-#1. You can check the new password working or not using the following command in MySQL
-#
-#First lets connect to MySQL
-#
-#```bash
-### mysql -uroot -pRoboShop@1
-#```
-#
-#Once after login to MySQL prompt then run this SQL Command.
-#
-#```sql
+echo "show plugins"|mysql -uroot -pRoboShop@1|grep validate_password 2>>${LOG_FILE}
+if [ $? -eq o ];then
+print "Uninstall plugin validate_password"
+echo "uninstall plugin validate_password;" >/tmp/plugin.sql
+mysql --connect-expired-password -uroot -pRoboShop@1 < /tmp/plugin.sql
+StatCheck $?
+fi
+
 #> uninstall plugin validate_password;
 #```
 #
