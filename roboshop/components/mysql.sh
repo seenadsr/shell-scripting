@@ -27,6 +27,7 @@ print "Uninstall plugin validate_password"
 echo "uninstall plugin validate_password;" >/tmp/plugin.sql
 mysql --connect-expired-password -uroot -pRoboShop@1 < /tmp/plugin.sql
 StatCheck $?
+
 fi
 
 #> uninstall plugin validate_password;
