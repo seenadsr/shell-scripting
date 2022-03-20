@@ -21,10 +21,11 @@ StatCheck $? "extracting files - "
 
 print " Configuring roboshop files"
 mv localhost.conf /etc/nginx/default.d/roboshop.conf >>$LOG_FILE
-sed -i -e '/catalogue/s/localhost/catalogue.roboshop.internal/' \
-       -e '/user/s/localhost/user.roboshop.internal/' \
-       -e '/cart/s/localhost/cart.roboshop.internal/' \
-       -e '/shipping/s/localhost/shipping.roboshop.internal/' /etc/nginx/default.d/roboshop.conf >>$LOG_FILE
+
+for components in catalogue user cart shipping payment;do
+  echo -e " updating ${components} configuration "
+sed -i -e '/${components}/s/localhost/${components}.roboshop.internal/' \
+       /etc/nginx/default.d/roboshop.conf >>$LOG_FILE
 StatCheck $? "Configuring roboshop - "
 
 
