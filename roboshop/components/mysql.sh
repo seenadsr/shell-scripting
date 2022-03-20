@@ -12,7 +12,7 @@ StatCheck $?
 print "Start MySQL"
 systemctl enable mysqld >>${LOG_FILE}&& systemctl start mysqld >>${LOG_FILE}
 
-echo "show databases"|mysql -uroot -pRoboShop@1
+echo "show databases"|mysql -uroot -pRoboShop@1 2&>>${LOG_FILE}
 if [ $? -ne 0 ];then
 print " Changing root default passowrd "
 echo "SET PASSWORD FOR 'root'@'localhost' = PASSWORD('RoboShop@1');" >/tmp/password.sql
