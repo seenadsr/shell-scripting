@@ -12,7 +12,7 @@ StatCheck $?
 print "Start MySQL"
 systemctl enable mysqld >>${LOG_FILE}&& systemctl start mysqld >>${LOG_FILE}
 
-echo "show databases"|mysql -uroot -pRoboShop@1 2>>${LOG_FILE}
+echo "show databases"|mysql -uroot -p"${MYSQL_PASSWD}" 2>>${LOG_FILE}
 if [ $? -ne 0 ];then
 print " Changing root default passowrd "
 echo "SET PASSWORD FOR 'root'@'localhost' = PASSWORD('RoboShop@1');" >/tmp/password.sql
@@ -24,11 +24,11 @@ else
 StatCheck $?
 fi
 
-echo "show plugins"|mysql -uroot -pRoboShop@1|grep validate_password 2>>${LOG_FILE}
+echo "show plugins"|mysql -uroot -p"${MYSQL_PASSWD}"|grep validate_password 2>>${LOG_FILE}
 if [ $? -eq 0 ];then
 print "Uninstall plugin validate_password"
 echo "uninstall plugin validate_password;" >/tmp/plugin.sql
-mysql --connect-expired-password -uroot -pRoboShop@1 < /tmp/plugin.sql 2>>${LOG_FILE}
+mysql --connect-expired-password -uroot -p"${MYSQL_PASSWD}" < /tmp/plugin.sql 2>>${LOG_FILE}
 else
   print "validate password not exist"
 StatCheck $?
@@ -40,5 +40,5 @@ StatCheck $?
 
 print "Load schemas"
 cd /tmp >>${LOG_FILE} && unzip -o mysql.zip >>${LOG_FILE} && cd mysql-main >>${LOG_FILE}
-mysql -u root -pRoboShop@1 <shipping.sql
+mysql -u root -p"${MYSQL_PASSWD}" <shipping.sql
 StatCheck $?

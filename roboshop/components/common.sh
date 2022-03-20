@@ -23,6 +23,7 @@ print() {
 }
 
 APP_USER=roboshop
+MYSQL_PASSWD=RoboShop@1
 
 NODJS() {
   print " Setting up YUM repo "
