@@ -23,10 +23,11 @@ print " Configuring roboshop files"
 mv localhost.conf /etc/nginx/default.d/roboshop.conf >>$LOG_FILE
 
 for components in catalogue user cart shipping payment;do
-  echo -e " updating ${components} configuration "
+echo -e " updating ${components} configuration "
 sed -i -e '/${components}/s/localhost/${components}.roboshop.internal/' /etc/nginx/default.d/roboshop.conf >>$LOG_FILE
-done
 StatCheck $? "Configuring roboshop - "
+done
+
 
 
 print "starting nginx services"
