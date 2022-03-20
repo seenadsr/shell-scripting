@@ -25,7 +25,7 @@ echo "show plugins"|mysql -uroot -pRoboShop@1|grep validate_password 2>>${LOG_FI
 if [ $? -eq 0 ];then
 print "Uninstall plugin validate_password"
 echo "uninstall plugin validate_password;" >/tmp/plugin.sql
-mysql --connect-expired-password -uroot -pRoboShop@1 < /tmp/plugin.sql 2 >>${LOG_FILE}
+mysql --connect-expired-password -uroot -pRoboShop@1 < /tmp/plugin.sql 2>>${LOG_FILE}
 StatCheck $?
 fi
 
