@@ -43,7 +43,7 @@ APP_SETUP() {
     StatCheck $? " Old files cleanup -"
 
     print " extract and configure "
-    cd /home/roboshop >>$LOG_FILE && unzip -o /tmp/${COMPONENT}.zip >>$LOG_FILE && mv ${COMPONENT}-main ${COMPONENT} >>$LOG_FILE && cd /home/roboshop/${COMPONENT} >>$LOG_FILE
+    cd /home/roboshop >>$LOG_FILE && unzip -o /tmp/${COMPONENT}.zip >>$LOG_FILE && mv ${COMPONENT}-main ${COMPONENT} >>$LOG_FILE >>$LOG_FILE
     StatCheck $? " configuration - "
 
 
