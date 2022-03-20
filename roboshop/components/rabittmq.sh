@@ -26,8 +26,6 @@ else
  StatCheck $?
 fi
 
-## rabbitmqctl set_user_tags roboshop administrator
-## rabbitmqctl set_permissions -p / roboshop ".*" ".*" ".*"
-#```
-#
-#Ref link : [https://www.rabbitmq.com/rabbitmqctl.8.html#User_Management](https://www.rabbitmq.com/rabbitmqctl.8.html#User_Management)
+print " configure rabittmq "
+rabbitmqctl set_user_tags roboshop administrator >>${LOG_FILE} && rabbitmqctl set_permissions -p / roboshop ".*" ".*" ".*" >>${LOG_FILE}
+StatCheck $?
