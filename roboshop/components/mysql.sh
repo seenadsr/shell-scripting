@@ -24,6 +24,7 @@ else
 StatCheck $?
 fi
 
+
 echo "show plugins"|mysql -uroot -p"${MYSQL_PASSWD}"|grep validate_password 2>>${LOG_FILE}
 if [ $? -eq 0 ];then
 print "Uninstall plugin validate_password"

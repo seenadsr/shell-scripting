@@ -22,6 +22,7 @@ print() {
   echo -e " `date` :- \e[36m $1 \e[0m"
 }
 
+
 APP_USER=roboshop
 MYSQL_PASSWD=RoboShop@1
 
