@@ -2,7 +2,7 @@
 source components/common.sh
 
 
-print "Setup YUM repositories for RabbitMQ"
+ print "Setup YUM repositories for RabbitMQ"
 curl -s https://packagecloud.io/install/repositories/rabbitmq/rabbitmq-server/script.rpm.sh | sudo bash >>${LOG_FILE}
 StatCheck $?
 
