@@ -27,3 +27,6 @@ rabittmq:
 
 payments:
 	bash components/payments.sh
+
+dispatch:
+	bash components/dispatch.sh
