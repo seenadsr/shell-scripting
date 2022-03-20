@@ -25,7 +25,7 @@ shipping:
 rabittmq:
 	bash components/rabittmq.sh
 
-payments:
+payment:
 	bash components/payments.sh
 
 dispatch:

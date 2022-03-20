@@ -61,7 +61,10 @@ SERVICE_SETUP() {
                -e 's/CATALOGUE_ENDPOINT/catalogue.roboshop.internal/' \
                -e 's/MONGO_ENDPOINT/mongo.roboshop.internal/' \
                -e 's/CARTENDPOINT/cart.roboshop.internal/' \
-               -e 's/DBHOST/mysql.roboshop.internal/' /home/roboshop/${COMPONENT}/systemd.service >>$LOG_FILE
+               -e 's/DBHOST/mysql.roboshop.internal/' \
+               -e 's/CARTHOST/cart.roboshop.internal/' \
+               -e 's/USERHOST/user.roboshop.internal/' \
+               -e 's/AMQPHOST/rabittmq.roboshop.internal/ /home/roboshop/${COMPONENT}/systemd.service >>$LOG_FILE
         StatCheck $? " DNS name updated - "
 
         print " Start systemd services "
@@ -103,5 +106,20 @@ cd /home/${APP_USER}/${COMPONENT} && mvn clean package >>$LOG_FILE && mv target/
 
 SERVICE_SETUP
 
+}
+
+PYTHON() {
+
+print "Install python"
+yum install python36 gcc python3-devel -y >>${LOG_FILE}
+StatCheck $?
+
+APP_SETUP
+
+print "Install the dependencies"
+cd /home/${APP_USER}/${COMPONENT} >>${LOG_FILE} && pip3 install -r requirements.txt >>${LOG_FILE}
+StatCheck $?
+
+SERVICE_SETUP
 }
 
