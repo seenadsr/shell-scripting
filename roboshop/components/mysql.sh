@@ -13,7 +13,7 @@ print "Start MySQL"
 systemctl enable mysqld >>${LOG_FILE}&& systemctl start mysqld >>${LOG_FILE}
 
 print " Change root default passowrd "
-echo "SET PASSWORD FOR 'root'@'localhost' = PASSWORD('RoboShop@1'); >/tmp/password.sql
+echo "SET PASSWORD FOR 'root'@'localhost' = PASSWORD('RoboShop@1');" >/tmp/password.sql
 DEFAULT_ROOT_PASSWD=$(grep "temporary password" /var/log/mysqld.log|awk '{print $NF}')
 mysql -uroot -p$"DEFAULT_ROOT_PASSWD" < /tmp/password.sql
 StatCheck $?
