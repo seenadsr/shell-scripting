@@ -14,10 +14,6 @@ if [ "$1 == "del" ];then
    for terminate in ${SPOT_EC2}; do
    COMPONENT=$terminate
    aws ec2 terminate-instances --instance-ids ${COMPONENT}
-elif [ "$1" == "cancel" ];then
-   for cancel in ${SPOT_REQ}; do
-    COMPONENT=$cancel
-    aws ec2 cancel-spot-instance-requests --spot-instance-request-ids ${COMPONENT}
- done
+done
 fi
 
