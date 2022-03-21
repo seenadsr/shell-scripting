@@ -1,4 +1,4 @@
-
+set -x
 if [ -z "$1" ];then
   echo " Instance name need to be specified"
   exit 1
@@ -20,6 +20,5 @@ elif [ "$1" == "cancel" ];then
     COMPONENT=$cancel
     aws ec2 cancel-spot-instance-requests --spot-instance-request-ids ${COMPONENT}
  done
-
 fi
 
