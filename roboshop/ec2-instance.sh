@@ -39,11 +39,7 @@ SPOT_REQ=$(aws ec2 describe-instances --filters Name=instance-lifecycle,Values=s
 if [ "$1" == "del"];then
   for terminate in ${SPOT_EC2};do
     COMPONENT=$terminate
-       aws ec2 terminate-instances --instance-ids ${COMPONENT} && \
-    elif [ "$1 == cancel"];then
-      for cancel in ${SPOT_REQ}
-      COMPONENT=$cancel
-       aws ec2 cancel-spot-instance-requests --spot-instance-request-ids ${COMPONENT}
-    done
+       aws ec2 terminate-instances --instance-ids ${COMPONENT}
+
 fi
 
