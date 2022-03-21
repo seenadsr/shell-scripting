@@ -5,7 +5,7 @@ SPOT_REQ=$(aws ec2 describe-instances --filters Name=instance-lifecycle,Values=s
 
 echo ${SPOT_EC2}
 if [ $? -eq 0 ];then
-   aws ec2 terminate-instances --instance-ids ${SPOT-EC2}
+   aws ec2 terminate-instances --instance-ids $SPOT_EC2
   fi
 
 echo ${SPOT_REQ}
