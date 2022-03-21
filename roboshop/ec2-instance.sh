@@ -16,4 +16,4 @@ PRIVATE_IP=$(aws ec2 run-instances \
 --instance-market-options "MarketType=spot,SpotOptions={SpotInstanceType=persistent,InstanceInterruptionBehavior=stop}"\
 |jq ."Instances[].PrivateIpAddress" |sed -e 's/"//g')
 
-sed -e 's/PRIVATE_IP/${PRIVATE_IP}/' -e 's/COMPONENT/${COMPONENT}/' sample.json >/tmp/record.json
+sed -e "s/PRIVATE_IP/${PRIVATE_IP}/" -e "s/COMPONENT/${COMPONENT}/" sample.json >/tmp/record.json
