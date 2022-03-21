@@ -27,9 +27,9 @@ if [ "$1" == "all" ];then
    for components in frontend mongodb catalogue redis cart user mysql shipping payment rabbitmq dispatch;do
      COMPONENT=$components
      create-ec2
-    else
-     craete-ec2
      done
+else
+    craete-ec2
 fi
 
 
