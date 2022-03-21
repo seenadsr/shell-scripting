@@ -29,7 +29,7 @@ if [ "$1" == "all" ];then
      create-ec2
      done
 else
-    craete-ec2
+    create-ec2
 fi
 
 
