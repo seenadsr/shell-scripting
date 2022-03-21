@@ -30,5 +30,6 @@ if [ "$1" == "all" ];then
     else
      craete-ec2
      done
+fi
 
 
