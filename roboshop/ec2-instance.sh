@@ -37,6 +37,7 @@ SPOT_EC2=$(aws ec2 describe-instances --filters Name=instance-lifecycle,Values=s
 SPOT_REQ=$(aws ec2 describe-instances --filters Name=instance-lifecycle,Values=spot --query Reservations[*].Instances[*].[SpotInstanceRequestId] --output text)
 
 if [ "$1" == "del"];then
+  COMPONENT=del
        aws ec2 terminate-instances --instance-ids ${SPOT_EC2} && \
        aws ec2 cancel-spot-instance-requests --spot-instance-request-ids ${SPOT_REQ}
 fi
